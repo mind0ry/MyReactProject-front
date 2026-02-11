@@ -3,7 +3,7 @@ import {useQuery} from "@tanstack/react-query";
 import apiClient from "../../http-commons";
 import {Link} from "react-router-dom";
 import {AxiosResponse} from "axios";
-import {MusicData} from "../../commons/commonsData";
+import {MusicItem, MusicData} from "../../commons/commonsData";
 
 function MusicList() {
 
@@ -26,16 +26,21 @@ function MusicList() {
         <div id="main-wrapper">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-3">
-                        <div className="thumbnail">
-                            <a href="/w3images/lights.jpg" target="_blank">
-                                <img src="/w3images/lights.jpg" alt="Lights" style={{"width":"100%"}}/>
-                                <div className="caption">
-                                    <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
+                    {
+                        data?.data.list && data?.data.list.map((music: MusicItem, index: number) =>
+                            <div className="col-md-3" key={index}>
+                                <div className="thumbnail">
+                                    <a href="#" target="_blank">
+                                        <img src={music.poster} alt="Lights" style={{"width":"100%"}}/>
+                                        <div className="caption">
+                                            <p>{music.title}</p>
+                                            <p style={{"fontSize":"12px"}}>{music.singer}</p>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </div>

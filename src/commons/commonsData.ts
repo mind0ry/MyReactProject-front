@@ -1,4 +1,4 @@
-export interface MusicList {
+export interface MusicItem {
     no: number;
     cno: number;
     rank: number;
@@ -14,7 +14,7 @@ export interface MusicList {
 }
 
 export interface MusicData {
-    list: MusicList[];
+    list: MusicItem[];
     curpage: number;
     totalpage: number;
     startPage: number;
