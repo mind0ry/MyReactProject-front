@@ -1,0 +1,12 @@
+.detail-title {
+    font-weight: bold;
+}
+
+td {
+    border-top: none !important;
+}
+
+.hit-area {
+    height: 80px;
+    float: right;
+}

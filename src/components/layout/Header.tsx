@@ -32,7 +32,7 @@ function Header() {
                                 </ul>
                             </li>
                             <li><a href="left-sidebar.html">노래 추천</a></li>
-                            <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                            <li><a href="right-sidebar.html">자유게시판</a></li>
                             <li><a href="no-sidebar.html">로그인</a></li>
                         </ul>
                     </nav>

@@ -4,6 +4,7 @@ import apiClient from "../../http-commons";
 import {Link} from "react-router-dom";
 import {AxiosResponse} from "axios";
 import {MusicItem, MusicData} from "../../commons/commonsData";
+import PagePrint from "../../commons/PagePrint";
 
 function MusicList() {
 
@@ -25,26 +26,41 @@ function MusicList() {
     return (
         <div id="main-wrapper">
             <div className="container">
+                <div className="row" style={{marginBottom:"20px"}}>
+                    <button className="btn-sm btn-light" onClick={()=>setCurpage(1)}>가요</button>&nbsp;
+                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>POP</button>&nbsp;
+                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>OST</button>&nbsp;
+                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>트롯</button>&nbsp;
+                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>JAZZ</button>&nbsp;
+                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>CLASSIC</button>
+                </div>
                 <div className="row">
                     {
                         data?.data.list && data?.data.list.map((music: MusicItem, index: number) =>
                             <div className="col-md-3" key={index}>
                                 <div className="thumbnail">
-                                    <a href="#" target="_blank">
+                                    <Link to={"/music/detail/"+music.no}>
                                         <img src={music.poster} alt="Lights" style={{"width":"100%"}}/>
                                         <div className="caption">
                                             <p>{music.title}</p>
                                             <p style={{"fontSize":"12px"}}>{music.singer}</p>
                                         </div>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         )
                     }
+                    <div className="col-12 text-center" style={{width:"100%"}}>
+                                {
+                                    data?.data &&
+                                    <PagePrint data={data.data} setCurpage={setCurpage}/>
+                                }
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
+
 
 export default MusicList;

@@ -37,7 +37,7 @@ const PagePrint:FC<PagePrintProps>=({data,setCurpage})=> {
     }
 
     return (
-        <ul className="pagination">
+        <ul className="pagination text-center">
             {pageArr}
         </ul>
     )

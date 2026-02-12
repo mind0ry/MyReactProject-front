@@ -1,3 +1,4 @@
+// list & detail
 export interface MusicItem {
     no: number;
     cno: number;
@@ -19,4 +20,23 @@ export interface MusicData {
     totalpage: number;
     startPage: number;
     endPage: number;
+}
+
+// youtube
+export interface YoutubeItem {
+    id: {
+        videoId: string;
+    }
+    snippet: {
+        title: string;
+        description: string;
+        thumbnail: {
+            medium: {
+                url: string;
+            }
+        }
+    }
+}
+export interface YoutubeResponse {
+    items: YoutubeItem[];
 }

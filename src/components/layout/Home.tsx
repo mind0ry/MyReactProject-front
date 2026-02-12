@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 function Home() {
     return (
         <>
@@ -5,12 +7,12 @@ function Home() {
                 <div id="banner" className="box container">
                     <div className="row">
                         <div className="7u">
-                            <h2>Hi. This is Verti.</h2>
-                            <p>It's a free responsive site template by HTML5 UP</p>
+                            <h2>개인프로젝트</h2>
+                            <p>React-query & Typescript</p>
                         </div>
                         <div className="5u">
                             <ul>
-                                <li><a href="#" className="button big icon fa-arrow-circle-right">Ok let's go</a></li>
+                                <li><Link to={"/music/list"} className="button big icon fa-arrow-circle-right">노래 목록</Link></li>
                                 <li><a href="#" className="button alt big icon fa-question-circle">More info</a></li>
                             </ul>
                         </div>
