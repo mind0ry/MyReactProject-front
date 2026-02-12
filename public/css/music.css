@@ -10,3 +10,186 @@ td {
     height: 80px;
     float: right;
 }
+
+.thumbnail {
+    padding: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    transition: 0.2s ease-in-out;
+    background-color: #fff;
+}
+
+.thumbnail:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.thumbnail img {
+    border-radius: 4px;
+    height: 220px;
+    object-fit: cover; /* 이미지 비율 유지 */
+}
+
+.thumbnail a {
+    text-decoration: none !important;
+    color: #333;
+}
+
+.caption p:first-child {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 8px 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.caption p:last-child {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+.col-md-3 {
+    margin-bottom: 20px;
+}
+
+.pagination {
+    justify-content: center;
+    gap: 6px;
+    margin: 20px 0;
+}
+
+.pagination .page-link {
+    color: #333;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 6px 12px;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.pagination .page-link:hover {
+    background: #f7f7f7;
+    border-color: #dcdcdc;
+    color: #111;
+}
+
+.pagination .page-item.active .page-link {
+    background: #333;
+    border-color: #333;
+    color: #fff;
+}
+
+.pagination .page-link:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.pagination .page-link.nav-link {
+    padding: 6px 12px;
+}
+
+.music-detail-box {
+    background: #fafafa;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    padding: 0 30px 60px 30px !important;
+    margin-bottom: 25px;
+}
+
+.comment-area {
+    margin-top: 30px;
+}
+
+.comment-area table.table {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    background: #ffffff;
+    margin-bottom: 12px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+.comment-area td.text-left {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.comment-area pre {
+    font-family: inherit;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    padding: 10px;
+    margin: 0;
+}
+
+.comment-area .btn-warning {
+    background-color: #f6f6f6;
+    border: 1px solid #ddd;
+    color: #555;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.comment-area .btn-warning:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.comment-write {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 15px;
+    background: #fafafa;
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.comment-write textarea {
+    flex: 1;
+    resize: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s ease;
+    height: 120px;
+}
+
+.comment-write textarea:focus {
+    border-color: #333;
+}
+
+.comment-write button {
+    width: 110px;
+    border: none;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.comment-write button:hover {
+    background-color: #000;
+}
+
+.comment-edit {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 15px;
+    background: #ffffff;
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}

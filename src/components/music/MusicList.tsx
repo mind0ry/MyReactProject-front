@@ -26,14 +26,6 @@ function MusicList() {
     return (
         <div id="main-wrapper">
             <div className="container">
-                <div className="row" style={{marginBottom:"20px"}}>
-                    <button className="btn-sm btn-light" onClick={()=>setCurpage(1)}>가요</button>&nbsp;
-                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>POP</button>&nbsp;
-                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>OST</button>&nbsp;
-                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>트롯</button>&nbsp;
-                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>JAZZ</button>&nbsp;
-                    <button className="btn btn-light" onClick={()=>setCurpage(1)}>CLASSIC</button>
-                </div>
                 <div className="row">
                     {
                         data?.data.list && data?.data.list.map((music: MusicItem, index: number) =>
