@@ -239,7 +239,7 @@ function MusicDetail() {
                                             <tbody>
                                             <tr>
                                                 <td className={"text-left"} width={"80%"}>
-                                                    ★{com.name}({com.dbday})
+                                                    {com.name}({com.dbday})
                                                 </td>
                                                 <td className={"text-right"} width={"20%"}>
                                                     {

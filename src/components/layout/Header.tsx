@@ -89,7 +89,7 @@ function Header() {
                         <ul>
                             <li><Link to={"/music/list"}>노래</Link></li>
                             <li><Link to={"chatbot"}>챗봇</Link></li>
-                            <li><a href="right-sidebar.html">자유게시판</a></li>
+                            <li><Link to={"/board/list"}>자유게시판</Link></li>
                             <li style={{"paddingLeft":"80px"}}>
                                 <div className="signup-search-area d-flex align-items-center justify-content-end">
                                     <div className="login_register_area d-flex">

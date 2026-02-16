@@ -1,6 +1,25 @@
 import {Link} from "react-router-dom";
+import {useQuery} from "@tanstack/react-query";
+import {AxiosResponse} from "axios";
+import {MusicItem} from "../../commons/commonsData";
+import apiClient from "../../http-commons";
 
 function Home() {
+
+    const {isLoading, isError, error, data} = useQuery<AxiosResponse<MusicItem[]>, Error>({
+        queryKey: ['music', 'top3'],
+        queryFn: async () => {
+            return await apiClient.get(`/music/top3`)
+        }
+    })
+    if(isLoading) {
+        return <div className="text-center">Loading...</div>
+    }
+    if(isError) {
+        return <div className="text-center">Error : {error?.message}</div>
+    }
+    console.log(data?.data)
+
     return (
         <>
             <div id="banner-wrapper">
@@ -13,7 +32,6 @@ function Home() {
                         <div className="5u">
                             <ul>
                                 <li><Link to={"/music/list"} className="button big icon fa-arrow-circle-right">노래 목록</Link></li>
-                                <li><a href="#" className="button alt big icon fa-question-circle">More info</a></li>
                             </ul>
                         </div>
                     </div>
@@ -21,104 +39,28 @@ function Home() {
             </div>
 
             <div id="features-wrapper">
-                <div className="container">
+                <div className="container" style={{"marginTop":"100px"}}>
+                    <h3>
+                        TOP3 노래
+                    </h3>
                     <div className="row">
-                        <div className="4u">
+                        {
+                            data && data?.data.map((music)=>(
+                                <div className="4u" key={music.no}>
 
-                            <section className="box feature">
-                                <a href="#" className="image featured"><img src="images/pic01.jpg" alt=""/></a>
-                                <div className="inner">
-                                    <header>
-                                        <h2>Put something here</h2>
-                                        <p>Maybe here as well I think</p>
-                                    </header>
-                                    <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed
-                                        semper amet bibendum tristique fringilla.</p>
-                                </div>
-                            </section>
-
-                        </div>
-                        <div className="4u">
-
-                            <section className="box feature">
-                                <a href="#" className="image featured"><img src="images/pic02.jpg" alt=""/></a>
-                                <div className="inner">
-                                    <header>
-                                        <h2>An interesting title</h2>
-                                        <p>This is also an interesting subtitle</p>
-                                    </header>
-                                    <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed
-                                        semper amet bibendum tristique fringilla.</p>
-                                </div>
-                            </section>
-
-                        </div>
-                        <div className="4u">
-
-                            <section className="box feature last">
-                                <a href="#" className="image featured"><img src="images/pic03.jpg" alt=""/></a>
-                                <div className="inner">
-                                    <header>
-                                        <h2>Oh, and finally ...</h2>
-                                        <p>Here's another intriguing subtitle</p>
-                                    </header>
-                                    <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed
-                                        semper amet bibendum tristique fringilla.</p>
-                                </div>
-                            </section>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="main-wrapper">
-                <div className="container">
-                    <div className="row">
-                        <div className="4u">
-
-                            <div id="sidebar">
-                                <section className="widget thumbnails">
-                                    <h3>Interesting stuff</h3>
-                                    <div className="grid">
-                                        <div className="row no-collapse 50%">
-                                            <div className="6u"><a href="#" className="image fit"><img
-                                                src="images/pic04.jpg" alt=""/></a></div>
-                                            <div className="6u"><a href="#" className="image fit"><img
-                                                src="images/pic05.jpg" alt=""/></a></div>
+                                    <section className="box feature">
+                                        <Link to={"/music/detail/"+music.no} className="image featured"><img src={music.poster}/></Link>
+                                        <div className="inner">
+                                            <header>
+                                                <h2>{music.title}</h2>
+                                                <p>{music.singer}</p>
+                                            </header>
                                         </div>
-                                        <div className="row no-collapse 50%">
-                                            <div className="6u"><a href="#" className="image fit"><img
-                                                src="images/pic06.jpg" alt=""/></a></div>
-                                            <div className="6u"><a href="#" className="image fit"><img
-                                                src="images/pic07.jpg" alt=""/></a></div>
-                                        </div>
-                                    </div>
-                                    <a href="#" className="button icon fa-file-text-o">More</a>
-                                </section>
-                            </div>
+                                    </section>
 
-                        </div>
-                        <div className="8u important(collapse)">
-
-                            <div id="content">
-                                <section className="last">
-                                    <h2>So what's this all about?</h2>
-                                    <p>This is <strong>Verti</strong>, a free and fully responsive HTML5 site template
-                                        by <a href="http://html5up.net">HTML5 UP</a>.
-                                        Verti is released under the <a href="http://html5up.net/license">Creative
-                                            Commons Attribution license</a>, so feel free to use it for any personal or
-                                        commercial project you might have going on (just don't forget to credit us for
-                                        the design!)</p>
-                                    <p>Phasellus quam turpis, feugiat sit amet ornare in, hendrerit in lectus. Praesent
-                                        semper bibendum ipsum, et tristique augue fringilla eu. Vivamus id risus vel
-                                        dolor auctor euismod quis eget mi. Etiam eu ante risus. Aliquam erat volutpat.
-                                        Aliquam luctus mattis lectus sit amet phasellus quam turpis.</p>
-                                    <a href="#" className="button icon fa-arrow-circle-right">Continue Reading</a>
-                                </section>
-                            </div>
-
-                        </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

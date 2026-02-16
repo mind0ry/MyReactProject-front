@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tanstack/react-query": "^5.90.20",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -11,19 +12,19 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
+    "@types/request": "^2.48.13",
     "axios": "^1.13.5",
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "oracledb": "^6.10.0",
+    "mysql2": "^3.11.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-router": "^7.13.0",
     "react-router-dom": "^7.13.0",
-    "@tanstack/react-query": "^5.90.20",
-    "request": "^2.88.2"
+    "react-scripts": "5.0.1",
+    "request": "^2.88.2",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19"
   }
 }
